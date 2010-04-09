@@ -20,7 +20,7 @@ AS=as
 
 # Macros
 CND_PLATFORM=GNU-Linux-x86
-CND_CONF=Release
+CND_CONF=Debug
 CND_DISTDIR=dist
 
 # Include project Makefile
@@ -31,6 +31,7 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Stack.o \
 	${OBJECTDIR}/main.o
 
 # C Compiler Flags
@@ -51,24 +52,29 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	${MAKE}  -f nbproject/Makefile-Release.mk dist/Release/GNU-Linux-x86/cstack
+	${MAKE}  -f nbproject/Makefile-Debug.mk dist/Debug/GNU-Linux-x86/cstack
 
-dist/Release/GNU-Linux-x86/cstack: ${OBJECTFILES}
-	${MKDIR} -p dist/Release/GNU-Linux-x86
+dist/Debug/GNU-Linux-x86/cstack: ${OBJECTFILES}
+	${MKDIR} -p dist/Debug/GNU-Linux-x86
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cstack ${OBJECTFILES} ${LDLIBSOPTIONS} 
+
+${OBJECTDIR}/Stack.o: nbproject/Makefile-${CND_CONF}.mk Stack.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Stack.o Stack.c
 
 ${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.c
+	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.c
 
 # Subprojects
 .build-subprojects:
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r build/Release
-	${RM} dist/Release/GNU-Linux-x86/cstack
+	${RM} -r build/Debug
+	${RM} dist/Debug/GNU-Linux-x86/cstack
 
 # Subprojects
 .clean-subprojects:
