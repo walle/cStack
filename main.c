@@ -1,8 +1,18 @@
-/* 
- * File:   main.c
- * Author: walle
+/*
+ * A simple generic stack implementation in c
  *
- * Created on April 9, 2010, 7:44 PM
+ * Testing so the stack works.
+ * 
+ * Defines a new stack and pushes 100 integers to it 0-99
+ * Pops the top and prints it 99
+ * Pushes 100 integers to it 200-299
+ * Pops 100 integers and prints them 299-200
+ * Peeks three times and prints the value 98
+ *
+ * File:   mail.c
+ * Author: Fredrik Wallgren <fredrik@wallgren.me>
+ *
+ * @license MIT
  */
 
 #include <stdio.h>
@@ -10,9 +20,6 @@
 
 #include "Stack.h"
 
-/*
- * 
- */
 int main(int argc, char** argv)
 {
   printf("Stack test\n");
