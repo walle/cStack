@@ -12,13 +12,14 @@
 extern "C" {
 #endif
 
-    struct {
+    typedef struct {
+        int allocatedSize;
         int size;
         int elemSize;
         void* elements;
-    }Stack;
+    } Stack;
 
-    void StackNew(Stack* s);
+    void StackNew(Stack* s, int elemSize);
     void StackDestroy(Stack* s);
     void StackPush(Stack* s, void* value);
     void StackPop(Stack* s, void* returnValue);
