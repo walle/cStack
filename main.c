@@ -8,6 +8,7 @@
  * Pushes 100 integers to it 200-299
  * Pops 100 integers and prints them 299-200
  * Peeks three times and prints the value 98
+ * Free the memory
  *
  * File:   mail.c
  * Author: Fredrik Wallgren <fredrik@wallgren.me>
@@ -60,6 +61,8 @@ int main(int argc, char** argv)
 
   StackPeek(&s, &result);
   printf("top = %i\n", result);
+
+  StackDestroy(&s);
 
   printf("Done!\n");
 
