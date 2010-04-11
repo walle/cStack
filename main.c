@@ -26,27 +26,34 @@ int main(int argc, char** argv)
 {
   printf("Stack test\n");
 
+  // Used to retrive the values from the stack
   int result;
 
+  // Create a new stack
   Stack s;
   StackNew(&s, sizeof(int));
 
+  // Counter for the for loops, must compile in C99 mode to allow initial declarations in for loops
   int i = 0;
-  
+
+  // Add values 0 - 99
   for(i; i < 100; i += 1)
   {
     StackPush(&s, &i);
   }
 
+  // Pop the value 99
   StackPop(&s, &result);
   printf("top = %i\n", result);
 
+  // Add values 200 - 299
   i = 200;
   for(i; i < 300; i += 1)
   {
     StackPush(&s, &i);
   }
 
+  // Pop the values 299 - 200
   i = 0;
   for(i; i < 100; i += 1)
   {
@@ -54,6 +61,7 @@ int main(int argc, char** argv)
     printf("top = %i\n", result);
   }
 
+  // Peek the value 98 three times
   StackPeek(&s, &result);
   printf("top = %i\n", result);
 
@@ -63,12 +71,14 @@ int main(int argc, char** argv)
   StackPeek(&s, &result);
   printf("top = %i\n", result);
 
+  // Pop all the remaining values
   while(s.size > 0)
   {
     StackPop(&s, &result);
     printf("top = %i\n", result);
   }
 
+  // Free the memory allocated
   StackDestroy(&s);
 
   printf("Done!\n");
